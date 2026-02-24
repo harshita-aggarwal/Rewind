@@ -68,7 +68,11 @@ rewind/
 │   │   └── auth.controller.js
 │   ├── routes/
 │   │   └── auth.route.js
-│   ├── models/                   # 🚧 coming soon
+│   ├── models/
+│   │   └── user.model.js                 
+│   ├── config/
+│   │   └── db.js
+│   │   └── envVars.js
 │   ├── middleware/               # 🚧 coming soon
 │   ├── services/                 # 🚧 coming soon
 │   └── server.js
@@ -109,7 +113,7 @@ Create a `.env` file in the root directory:
 
 ```env
 PORT=5002
-MONGO_URI=your_mongodb_connection_string
+MONGODB_URI=your_mongodb_connection_string
 JWT_SECRET=your_jwt_secret_key
 NODE_ENV=development
 ```
