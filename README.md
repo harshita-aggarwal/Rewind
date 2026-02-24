@@ -12,7 +12,7 @@ A full-stack Netflix-inspired streaming discovery app built with the MERN stack.
 - [x] Project scaffolding & server setup (`server.js`)
 - [x] Auth routes (`auth.route.js`)
 - [x] Auth controller (`auth.controller.js`)
-- [ ] User model (coming soon)
+- [x] User model (`user.model.js`)
 - [ ] Protect route middleware (coming soon)
 - [ ] Movie & TV routes + controllers (coming soon)
 - [ ] Search routes + controllers (coming soon)
