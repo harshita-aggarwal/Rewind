@@ -56,7 +56,7 @@ export async function signup(req, res) {
       image,
     });
 
-    if(newUser){
+    if (newUser) {
       generateTokenAndSetCookie(newUser._id, res);
 
       await newUser.save();
@@ -68,9 +68,7 @@ export async function signup(req, res) {
           password: "",
         },
       });
-
     }
-
   } catch (error) {
     console.log("Error in signup controller" + error.message);
     res.status(500).json({ message: "Internal Server Error" });
@@ -78,8 +76,45 @@ export async function signup(req, res) {
   res.send("Signup Route");
 }
 export async function login(req, res) {
-  res.send("Login Route");
+  try {
+    const { email, password } = req.body;
+
+    if (!email || !password) {
+      return res.status(400).json({ message: "All fields are required!" });
+    }
+
+    const user = await User.findOne({ email: email });
+    if (!user) {
+      return res.status(404).json({ message: "Invalid Credentials" });
+    }
+
+    const isPasswordCorrect = await bcryptjs.compare(password, user.password);
+
+    if (!isPasswordCorrect) {
+      return res.status(400).json({ message: "Invalid Credentials" });
+    }
+
+    generateTokenAndSetCookie(user._id, res);
+
+    res.status(200).json({
+      syccess: true,
+      user: {
+        ...user._doc,
+        password: "",
+      }
+    })
+  } catch (error) {
+    console.log("Error in login controller", error.message);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
 }
 export async function logout(req, res) {
-  res.send("Logout Route");
+  try {
+    res.clearCookie("jwt-rewind");
+
+    res.status(200).json({ message: "Logged out successfully" });
+  } catch (error) {
+    console.log("Error in logout controller", error.message);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
 }
