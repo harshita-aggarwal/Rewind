@@ -69,7 +69,9 @@ rewind/
 │   ├── routes/
 │   │   └── auth.route.js
 │   ├── models/
-│   │   └── user.model.js                 
+│   │   └── user.model.js    
+│   ├── utils/
+│   │   └── generateToken.js              
 │   ├── config/
 │   │   └── db.js
 │   │   └── envVars.js
