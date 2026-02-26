@@ -73,7 +73,6 @@ export async function signup(req, res) {
     console.log("Error in signup controller" + error.message);
     res.status(500).json({ message: "Internal Server Error" });
   }
-  res.send("Signup Route");
 }
 export async function login(req, res) {
   try {
@@ -101,8 +100,8 @@ export async function login(req, res) {
       user: {
         ...user._doc,
         password: "",
-      }
-    })
+      },
+    });
   } catch (error) {
     console.log("Error in login controller", error.message);
     res.status(500).json({ message: "Internal Server Error" });

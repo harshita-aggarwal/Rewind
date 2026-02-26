@@ -14,7 +14,8 @@ A full-stack Netflix-inspired streaming discovery app built with the MERN stack.
 - [x] Auth controller (`auth.controller.js`)
 - [x] User model (`user.model.js`)
 - [ ] Protect route middleware (coming soon)
-- [ ] Movie & TV routes + controllers (coming soon)
+- [x] TMDB Service Integration (`tmdb.service.js`)
+- [ ] Movie & TV routes + controllers (`movie.route.js`, `movie.controller.js`)
 - [ ] Search routes + controllers (coming soon)
 - [ ] History routes + controllers (coming soon)
 
@@ -39,7 +40,7 @@ A full-stack Netflix-inspired streaming discovery app built with the MERN stack.
   - Top TV Shows
   - ...and more
 - **Search** — Search across movies and TV shows in real time
-- **Movies & TV Shows** — Fetch and browse content
+- **Movies & TV Shows** — Fetch and browse content powered by TMDB API
 - **Watch Page** — Dedicated page for viewing trailers and content details
 - **History Page** — Track everything you've watched
 - **Protected Routes** — Middleware-guarded routes ensuring only authenticated users access private pages
@@ -55,6 +56,7 @@ A full-stack Netflix-inspired streaming discovery app built with the MERN stack.
 | Backend | Node.js, Express.js |
 | Database | MongoDB, Mongoose |
 | Auth | JWT, bcrypt |
+| External API | TMDB |
 | Styling | TBD |
 
 ---
@@ -66,8 +68,10 @@ rewind/
 ├── backend/
 │   ├── controllers/
 │   │   └── auth.controller.js
+│   │   └── movie.controller.js
 │   ├── routes/
 │   │   └── auth.route.js
+│   │   └── movie.route.js
 │   ├── models/
 │   │   └── user.model.js    
 │   ├── utils/
@@ -76,7 +80,8 @@ rewind/
 │   │   └── db.js
 │   │   └── envVars.js
 │   ├── middleware/               # 🚧 coming soon
-│   ├── services/                 # 🚧 coming soon
+│   ├── services/
+│   │   └── tmdb.service.js               
 │   └── server.js
 ├── frontend/                     # 🚧 coming soon
 ├── .env
@@ -93,6 +98,7 @@ rewind/
 
 - Node.js v18+
 - MongoDB (local or Atlas)
+- TMDB API Key - get one at themoviedb.org
 
 ### Installation
 
@@ -118,6 +124,7 @@ PORT=5002
 MONGODB_URI=your_mongodb_connection_string
 JWT_SECRET=your_jwt_secret_key
 NODE_ENV=development
+TMDB_API_KEY=your_tmdb_api_key
 ```
 
 4. **Run the server**
@@ -125,6 +132,35 @@ NODE_ENV=development
 ```bash
 npm run dev
 ```
+---
+
+## 🔐 API Endpoints
+
+### Auth
+| Method | Route | Description | 
+|--------|-------|-------------|
+| POST | `/api/v1/auth/signup` | Register a new user | 
+| POST | `/api/v1/auth/login` | Login and receive JWT | 
+| POST | `/api/v1/auth/logout` | Logout and clear session | 
+
+### Movies
+| Method | Route | Description | 
+|--------|-------|-------------|
+| GET | `/api/v1/movie/trending` | Get trending movies | 
+| GET | `/api/v1/movie/:id/details` | Get movie details |
+| GET | `/api/v1/movie/:id/trailers` | Get movie trailers |
+| GET | `/api/v1/movie/:id/similar` | Get similar movies |
+| GET | `/api/v1/movie/:category` | Get movies by Category |
+
+### TV Shows
+| Method | Route | Description | Status | 
+|--------|-------|-------------|--------|
+| GET | `/api/v1/tv/trending` | Get trending TV shows | Coming Soon | 
+| GET | `/api/v1/tv/:id/details` | Get TV show details | Coming Soon | 
+| GET | `/api/v1/tv/:id/trailers` | Get TV show trailers | Coming Soon | 
+| GET | `/api/v1/tv/:id/similar` | Get similar TV shows | Coming Soon | 
+| GET | `/api/v1/tv/:category` | Get TV shows by Category | Coming Soon | 
+
 
 ---
 
