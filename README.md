@@ -20,7 +20,7 @@ A full-stack Netflix-inspired streaming discovery app built with the MERN stack.
 - [ ] History routes + controllers (coming soon)
 
 ### Frontend
-- [ ] App scaffolding (coming soon)
+- [x] App scaffolding (`main.jsx`, `App.jsx`)
 - [ ] Signup / Login / Logout pages (coming soon)
 - [ ] Home screen with banner + content strips (coming soon)
 - [ ] Watch page (coming soon)
@@ -56,8 +56,8 @@ A full-stack Netflix-inspired streaming discovery app built with the MERN stack.
 | Backend | Node.js, Express.js |
 | Database | MongoDB, Mongoose |
 | Auth | JWT, bcrypt |
-| External API| TMDB |
-| Styling | TBD |
+| External API| TMBD |
+| Styling | Tailwind |
 
 ---
 
@@ -67,25 +67,42 @@ A full-stack Netflix-inspired streaming discovery app built with the MERN stack.
 rewind/
 ├── backend/
 │   ├── controllers/
-│   │   └── auth.controller.js
-│   │   └── movie.controller.js
+│   │   ├──  auth.controller.js
+│   │   ├──  movie.controller.js
 │   │   └── tv.controller.js
 │   ├── routes/
-│   │   └── auth.route.js
-│   │   └── movie.route.js
+│   │   ├── auth.route.js
+│   │   ├── movie.route.js
 │   │   └── tv.route.js
 │   ├── models/
 │   │   └── user.model.js    
 │   ├── utils/
 │   │   └── generateToken.js              
 │   ├── config/
-│   │   └── db.js
+│   │   ├── db.js
 │   │   └── envVars.js
 │   ├── middleware/               # 🚧 coming soon
 │   ├── services/
 │   │   └── tmdb.service.js                
 │   └── server.js
-├── frontend/                     # 🚧 coming soon
+├── frontend/
+│   ├── public/
+│   │   └── index.html
+│   ├── src/
+│   │   └── pages
+│   │   │   ├── HomePage.jsx
+│   │   │   ├── LoginPage.jsx
+│   │   │   └── SignUpPage.jsx
+│   │   ├── App.jsx
+│   │   ├── index.css
+│   │   └── main.jsx
+│   ├── index.html
+│   ├── .gitignore
+│   ├── package-lock.json
+│   ├── package.json
+│   ├── tailwind.config.js
+│   ├── postcss.config.js
+│   └── vite.config.js
 ├── .env
 ├── .gitignore
 ├── package-lock.json
