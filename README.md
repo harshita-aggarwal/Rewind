@@ -15,7 +15,7 @@ A full-stack Netflix-inspired streaming discovery app built with the MERN stack.
 - [x] User model (`user.model.js`)
 - [ ] Protect route middleware (coming soon)
 - [x] TMDB Service Integration (`tmdb.service.js`)
-- [ ] Movie & TV routes + controllers (`movie.route.js`, `movie.controller.js`)
+- [x] Movie & TV routes + controllers (`tv.route.js`, `movie.route.js`, `tv.controller.js`, `movie.controller.js`)
 - [ ] Search routes + controllers (coming soon)
 - [ ] History routes + controllers (coming soon)
 
@@ -40,7 +40,7 @@ A full-stack Netflix-inspired streaming discovery app built with the MERN stack.
   - Top TV Shows
   - ...and more
 - **Search** — Search across movies and TV shows in real time
-- **Movies & TV Shows** — Fetch and browse content powered by TMDB API
+- **Movies & TV Shows** — Fetch and browse content powered by the TMDB API
 - **Watch Page** — Dedicated page for viewing trailers and content details
 - **History Page** — Track everything you've watched
 - **Protected Routes** — Middleware-guarded routes ensuring only authenticated users access private pages
@@ -56,7 +56,7 @@ A full-stack Netflix-inspired streaming discovery app built with the MERN stack.
 | Backend | Node.js, Express.js |
 | Database | MongoDB, Mongoose |
 | Auth | JWT, bcrypt |
-| External API | TMDB |
+| External API| TMDB |
 | Styling | TBD |
 
 ---
@@ -69,9 +69,11 @@ rewind/
 │   ├── controllers/
 │   │   └── auth.controller.js
 │   │   └── movie.controller.js
+│   │   └── tv.controller.js
 │   ├── routes/
 │   │   └── auth.route.js
 │   │   └── movie.route.js
+│   │   └── tv.route.js
 │   ├── models/
 │   │   └── user.model.js    
 │   ├── utils/
@@ -81,7 +83,7 @@ rewind/
 │   │   └── envVars.js
 │   ├── middleware/               # 🚧 coming soon
 │   ├── services/
-│   │   └── tmdb.service.js               
+│   │   └── tmdb.service.js                
 │   └── server.js
 ├── frontend/                     # 🚧 coming soon
 ├── .env
@@ -98,7 +100,7 @@ rewind/
 
 - Node.js v18+
 - MongoDB (local or Atlas)
-- TMDB API Key - get one at themoviedb.org
+- TMDB API Key — get one at themoviedb.org
 
 ### Installation
 
@@ -153,14 +155,13 @@ npm run dev
 | GET | `/api/v1/movie/:category` | Get movies by Category |
 
 ### TV Shows
-| Method | Route | Description | Status | 
-|--------|-------|-------------|--------|
-| GET | `/api/v1/tv/trending` | Get trending TV shows | Coming Soon | 
-| GET | `/api/v1/tv/:id/details` | Get TV show details | Coming Soon | 
-| GET | `/api/v1/tv/:id/trailers` | Get TV show trailers | Coming Soon | 
-| GET | `/api/v1/tv/:id/similar` | Get similar TV shows | Coming Soon | 
-| GET | `/api/v1/tv/:category` | Get TV shows by Category | Coming Soon | 
-
+| Method | Route | Description | 
+|--------|-------|-------------|
+| GET | `/api/v1/tv/trending` | Get trending TV shows | 
+| GET | `/api/v1/tv/:id/details` | Get TV show details |
+| GET | `/api/v1/tv/:id/trailers` | Get TV show trailers |
+| GET | `/api/v1/tv/:id/similar` | Get similar TV shows |
+| GET | `/api/v1/tv/:category` | Get TV shows by Category |
 
 ---
 
