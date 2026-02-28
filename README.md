@@ -21,7 +21,7 @@ A full-stack Netflix-inspired streaming discovery app built with the MERN stack.
 
 ### Frontend
 - [x] App scaffolding (`main.jsx`, `App.jsx`)
-- [ ] Signup / Login / Logout pages (coming soon)
+- [x] Signup / Login / Logout pages (`LoginPage.jsx`, `SignUpPage.jsx`)
 - [ ] Home screen with banner + content strips (coming soon)
 - [ ] Watch page (coming soon)
 - [ ] Search page (coming soon)
@@ -90,7 +90,10 @@ rewind/
 │   │   └── index.html
 │   ├── src/
 │   │   └── pages
-│   │   │   ├── HomePage.jsx
+│   │   │   ├──home
+│   │   │   │  ├── HomePage.jsx
+│   │   │   │  ├── HomeScreen.jsx
+│   │   │   │  ├── AuthScreen.jsx
 │   │   │   ├── LoginPage.jsx
 │   │   │   └── SignUpPage.jsx
 │   │   ├── App.jsx
