@@ -21,8 +21,12 @@ A full-stack Netflix-inspired streaming discovery app built with the MERN stack.
 
 ### Frontend
 - [x] App scaffolding (`main.jsx`, `App.jsx`)
-- [x] Signup / Login / Logout pages (`LoginPage.jsx`, `SignUpPage.jsx`)
-- [ ] Home screen with banner + content strips (coming soon)
+- [x] Routing setup with React Router (`App.jsx`)
+- [x] Signup page (`SignUpPage.jsx`) — email, username & password form with validation
+- [x] Login page (`LoginPage.jsx`) — email & password form
+- [x] Home page with auth-based routing (`HomePage.jsx`) — renders `AuthScreen` or `HomeScreen` depending on user state
+- [x] Auth landing screen (`AuthScreen.jsx`) — hero banner with email capture, "Get Started" CTA, and Sign In link
+- [ ] Home screen content strips (`HomeScreen.jsx`) — scaffolded, in progress
 - [ ] Watch page (coming soon)
 - [ ] Search page (coming soon)
 - [ ] History page (coming soon)
@@ -56,7 +60,7 @@ A full-stack Netflix-inspired streaming discovery app built with the MERN stack.
 | Backend | Node.js, Express.js |
 | Database | MongoDB, Mongoose |
 | Auth | JWT, bcrypt |
-| External API| TMBD |
+| External API| TMDB |
 | Styling | Tailwind |
 
 ---
@@ -89,11 +93,11 @@ rewind/
 │   ├── public/
 │   │   └── index.html
 │   ├── src/
-│   │   └── pages
-│   │   │   ├──home
-│   │   │   │  ├── HomePage.jsx
-│   │   │   │  ├── HomeScreen.jsx
-│   │   │   │  ├── AuthScreen.jsx
+│   │   ├── pages/
+│   │   │   ├── home/
+│   │   │   │   ├── HomePage.jsx       # Auth-aware router: shows AuthScreen or HomeScreen
+│   │   │   │   ├── HomeScreen.jsx     # 🚧 Content strips (in progress)
+│   │   │   │   └── AuthScreen.jsx     # Hero landing with email capture CTA
 │   │   │   ├── LoginPage.jsx
 │   │   │   └── SignUpPage.jsx
 │   │   ├── App.jsx
